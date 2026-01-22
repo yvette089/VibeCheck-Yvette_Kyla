@@ -72,3 +72,13 @@ app.get("/api/secret", (req, res) => {
 app.listen(PORT, () => {
   console.log(`VibeCheck API running at http://localhost:${PORT}`);
 });
+
+app.get("/api/fortune", (req, res) => {
+  const pick = fortunes[Math.floor(Math.random() * fortunes.length)];
+  res.json({ fortune: pick });
+});
+
+app.get("/api/joke", (req, res) => {
+  const pick = jokes[Math.floor(Math.random() * jokes.length)];
+  res.json({ joke: pick });
+});
